@@ -8,11 +8,11 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId 'com.github.tvbox.Junyu'
+        applicationId 'com.github.tvbox.Frank'
         minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
-        versionName "Junyu".concat("_").concat(buildTime())//根据打包日期生成版本号
+        versionName "Frank".concat("_").concat(buildTime())//根据打包日期生成版本号
         multiDexEnabled true
         //设置room的Schema的位置
         javaCompileOptions {
