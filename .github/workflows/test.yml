@@ -1,4 +1,4 @@
-name: Auto Build
+name: Auto Build self
 
 on:
   schedule:
@@ -69,16 +69,16 @@ jobs:
           rm -rf apk/
           mkdir -p apk/
           for file in `find ~ -name "*release*.apk" -print`; do
-            mv "$file" apk/TVBox_q215613905_${{ env.tag }}_Release.apk
+            mv "$file" apk/TVBox_Frank_${{ env.tag }}_Release.apk
           done
           for file in `find ~ -name "*debug*.apk" -print`; do
-            mv "$file" apk/TVBox_q215613905_${{ env.tag }}_Debug.apk
+            mv "$file" apk/TVBox_Frank_${{ env.tag }}_Debug.apk
           done
       - name: Upload App To Artifact
         uses: actions/upload-artifact@v3
         if: ${{ env.commit }}
         with:
-          name: TVBox_q215613905_Release_and_Debug
+          name: TVBox_Frank_Release_and_Debug
           path: TVBoxOSC/apk/*
       - name: Release and Upload Assets
         uses: softprops/action-gh-release@v1
