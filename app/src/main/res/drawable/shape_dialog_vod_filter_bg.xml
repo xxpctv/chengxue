@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    VOD筛选页背景颜色-->
+    <corners
+        android:topLeftRadius="@dimen/vs_10"
+        android:topRightRadius="@dimen/vs_10" />
+    <solid android:color="@color/color_99000000" />
+	<gradient
+    android:angle="90"
+    android:endColor="@android:color/white"
+    android:startColor="@android:color/black" />
+</shape>
