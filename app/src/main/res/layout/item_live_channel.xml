@@ -13,14 +13,14 @@
 
     <TextView
         android:id="@+id/tvChannelNum"
-        android:layout_width="60mm"
+        android:layout_width="90mm"
         android:layout_height="60mm"
         android:ellipsize="marquee"
         android:gravity="center"
         android:marqueeRepeatLimit="marquee_forever"
         android:singleLine="true"
         android:textColor="@android:color/white"
-        android:textSize="22mm" />
+        android:textSize="28mm" />
 
     <TextView
         android:id="@+id/tvChannelName"
@@ -32,5 +32,5 @@
         android:marqueeRepeatLimit="marquee_forever"
         android:singleLine="true"
         android:textColor="@android:color/white"
-        android:textSize="22mm" />
+        android:textSize="28mm" />
 </LinearLayout>

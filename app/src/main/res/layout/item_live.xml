@@ -19,7 +19,7 @@
         android:singleLine="true"
         android:text="+新增直播"
         android:textColor="@color/color_CBF46A"
-        android:textSize="24mm"
+        android:textSize="28mm"
         android:visibility="gone" />
 
     <TextView
@@ -34,5 +34,5 @@
         android:paddingRight="5mm"
         android:singleLine="true"
         android:textColor="@android:color/white"
-        android:textSize="22mm" />
+        android:textSize="28mm" />
 </FrameLayout>
