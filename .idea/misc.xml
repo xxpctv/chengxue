@@ -9,20 +9,7 @@
       <map>
         <entry key="..\:/Users/21561/Desktop/TVBOX/TVBoxOS/app/src/main/res/layout/activity_detail.xml" value="0.16893115942028986" />
         <entry key="..\:/Users/Frank/Documents/GitHub/q215613905-Tbox - 220810/app/src/main/res/drawable/icon_live.xml" value="0.2685" />
-        <entry key="..\:/Users/Frank/Documents/GitHub/q215613905-Tbox - 220810/app/src/main/res/layout/activity_live_play.xml" value="0.16" />
-        <entry key="..\:/Users/Frank/Documents/GitHub/q215613905-Tbox - 220810/app/src/main/res/layout/activity_play.xml" value="0.2484375" />
-        <entry key="..\:/Users/Frank/Documents/GitHub/q215613905-Tbox - 220810/app/src/main/res/layout/dialog_tip.xml" value="0.2484375" />
-        <entry key="..\:/Users/Frank/Documents/GitHub/q215613905-Tbox - 220810/app/src/main/res/layout/fragment_model.xml" value="0.33" />
-        <entry key="..\:/Users/Frank/Documents/GitHub/q215613905-Tbox - 220810/app/src/main/res/layout/fragment_user.xml" value="0.33" />
-        <entry key="..\:/Users/Frank/Documents/GitHub/q215613905-Tbox - 220810/app/src/main/res/layout/item_live.xml" value="0.3614583333333333" />
-        <entry key="..\:/Users/Frank/Documents/GitHub/q215613905-Tbox - 220810/app/src/main/res/layout/item_live_channel.xml" value="0.15" />
-        <entry key="..\:/Users/Frank/Documents/GitHub/q215613905-Tbox - 220810/app/src/main/res/layout/item_live_channel_group.xml" value="0.184375" />
-        <entry key="..\:/Users/Frank/Documents/GitHub/q215613905-Tbox - 220810/app/src/main/res/layout/item_live_setting.xml" value="0.2484375" />
-        <entry key="..\:/Users/Frank/Documents/GitHub/q215613905-Tbox - 220810/app/src/main/res/layout/item_live_setting_group.xml" value="0.24895833333333334" />
-        <entry key="..\:/Users/Frank/Documents/GitHub/q215613905-Tbox - 220810/app/src/main/res/layout/item_setting_menu.xml" value="0.2484375" />
-        <entry key="..\:/Users/Frank/Documents/GitHub/q215613905-Tbox - 220810/app/src/main/res/layout/item_user_hot_vod.xml" value="0.2484375" />
-        <entry key="..\:/Users/Frank/Documents/GitHub/q215613905-Tbox - 220810/app/src/main/res/layout/player_live_control_view.xml" value="0.2484375" />
-        <entry key="..\:/Users/Frank/Documents/GitHub/q215613905-Tbox - 220810/app/src/main/res/layout/player_vod_control_view.xml" value="0.3614583333333333" />
+        <entry key="..\:/Users/Frank/Documents/GitHub/q215613905-Tbox - 220810/app/src/main/res/layout/fragment_user.xml" value="0.14722222222222223" />
         <entry key="..\:/android/repository/TVBoxOSC/app/src/main/res/layout/activity_live_play.xml" value="0.1" />
         <entry key="..\:/android/repository/TVBoxOSC/app/src/main/res/layout/item_channel_group_layout.xml" value="0.22826086956521738" />
         <entry key="..\:/android/repository/TVBoxOSC/app/src/main/res/layout/item_live_channel_layout.xml" value="0.22826086956521738" />

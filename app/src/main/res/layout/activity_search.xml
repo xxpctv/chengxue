@@ -40,7 +40,7 @@
 
                 <TextView
                     android:id="@+id/tvSearch"
-                    android:layout_width="0dp"
+                    android:layout_width="0mm"
                     android:layout_height="@dimen/vs_50"
                     android:layout_weight="1"
                     android:background="@drawable/shape_user_focus"
@@ -56,7 +56,7 @@
 
                 <TextView
                     android:id="@+id/tvClear"
-                    android:layout_width="0dp"
+                    android:layout_width="0mm"
                     android:layout_height="@dimen/vs_50"
                     android:layout_weight="1"
                     android:background="@drawable/shape_user_focus"
@@ -92,10 +92,10 @@
 
             <ImageView
                 android:id="@+id/ivQRCode"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
+                android:layout_width="300mm"
+                android:layout_height="300mm"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="20mm" />
         </LinearLayout>
     </LinearLayout>
 
