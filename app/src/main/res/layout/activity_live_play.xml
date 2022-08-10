@@ -39,7 +39,7 @@
 
         <com.owen.tvrecyclerview.widget.TvRecyclerView
             android:id="@+id/mChannelGridView"
-            android:layout_width="240mm"
+            android:layout_width="360mm"
             android:layout_height="match_parent"
             android:background="@color/color_66000000"
             android:paddingLeft="5mm"
