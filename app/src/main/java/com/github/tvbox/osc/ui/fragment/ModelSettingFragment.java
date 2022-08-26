@@ -99,7 +99,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
         tvParseWebView.setText(Hawk.get(HawkConfig.PARSE_WEBVIEW, true) ? "系统自带" : "XWalkView");
         tvApi.setText(Hawk.get(HawkConfig.API_URL, ""));
         tvDns.setText(OkGoHelper.dnsHttpsList.get(Hawk.get(HawkConfig.DOH_URL, 0)));
-        tvHomeRec.setText(getHomeRecName(Hawk.get(HawkConfig.HOME_REC, 0)));
+        tvHomeRec.setText(getHomeRecName(Hawk.get(HawkConfig.HOME_REC, 1)));// 0 豆瓣热播 1 数据源推荐 2 历史
         tvHistoryNum.setText(HistoryHelper.getHistoryNumName(Hawk.get(HawkConfig.HISTORY_NUM, 0)));
         tvSearchView.setText(getSearchView(Hawk.get(HawkConfig.SEARCH_VIEW, 1)));
         tvHomeApi.setText(ApiConfig.get().getHomeSourceBean().getName());
@@ -435,7 +435,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
-                int defaultPos = Hawk.get(HawkConfig.HOME_REC, 0);
+                int defaultPos = Hawk.get(HawkConfig.HOME_REC, 1);// 0 豆瓣热播 1 数据源推荐 2 历史
                 ArrayList<Integer> types = new ArrayList<>();
                 types.add(0);
                 types.add(1);
