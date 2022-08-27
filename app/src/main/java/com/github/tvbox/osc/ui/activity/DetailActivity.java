@@ -119,7 +119,7 @@ public class DetailActivity extends BaseActivity {
     private View seriesFlagFocus = null;
     private boolean isReverse;
     private String preFlag="";
-    private boolean firstReverse;
+	private boolean firstReverse;
     private V7GridLayoutManager mGridViewLayoutMgr = null;
 
     @Override
@@ -171,7 +171,7 @@ public class DetailActivity extends BaseActivity {
         seriesFlagAdapter = new SeriesFlagAdapter();
         mGridViewFlag.setAdapter(seriesFlagAdapter);
         isReverse = false;
-        firstReverse = false;
+		firstReverse = false;
         if (showPreview) {
             playFragment = new PlayFragment();
             getSupportFragmentManager().beginTransaction().add(R.id.previewPlayer, playFragment).commit();
@@ -201,10 +201,10 @@ public class DetailActivity extends BaseActivity {
                     toggleFullPreview();
                     if(firstReverse){
                         jumpToPlay();
-                        firstReverse=false;
                     }
                 } else {
                     jumpToPlay();
+					firstReverse=false;
                 }
             }
         });

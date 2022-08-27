@@ -287,7 +287,7 @@ public class PlayActivity extends BaseActivity {
                         String flag = info.optString("flag");
                         String url = info.getString("url");
                         HashMap<String, String> headers = null;
-                        webUserAgent = null;
+						webUserAgent = null;
                         if (info.has("header")) {
                             try {
                                 JSONObject hds = new JSONObject(info.getString("header"));
@@ -298,7 +298,7 @@ public class PlayActivity extends BaseActivity {
                                         headers = new HashMap<>();
                                     }
                                     headers.put(key, hds.getString(key));
-                                    if (key.equalsIgnoreCase("user-agent")) {
+									if (key.equalsIgnoreCase("user-agent")) {
                                         webUserAgent = hds.getString(key).trim();
                                     }
                                 }
@@ -507,7 +507,7 @@ public class PlayActivity extends BaseActivity {
     private String progressKey;
     private String parseFlag;
     private String webUrl;
-    private String webUserAgent;
+	private String webUserAgent;
 
     private void initParse(String flag, boolean useParse, String playUrl, final String url) {
         parseFlag = flag;
