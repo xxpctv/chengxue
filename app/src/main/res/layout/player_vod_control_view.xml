@@ -14,22 +14,8 @@
             tools:visibility="visible"
             android:layout_marginStart="@dimen/vs_20"
             android:layout_marginLeft="@dimen/vs_20"
-            android:layout_marginTop="@dimen/vs_10"
+            android:layout_marginTop="@dimen/vs_30"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tv_info_name1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:ellipsize="end"
-                android:singleLine="true"
-                android:width="680dp"
-                android:paddingTop="@dimen/vs_20"
-                android:paddingLeft="@dimen/vs_20"
-                android:text="http://"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/ts_24" />
 
             <TextView
                 android:id="@+id/tv_videosize"
@@ -41,6 +27,10 @@
                 android:paddingLeft="@dimen/vs_20"
                 android:tag="vod_video_size"
                 android:text="[ 1024 x 768 ]"
+				android:shadowColor="@color/color_99000000"
+                android:shadowDx="2.0"
+                android:shadowDy="2.0"
+                android:shadowRadius="3.0"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/ts_24" />
 
@@ -68,10 +58,11 @@
             android:maxLines="1"
             android:padding="@dimen/vs_20"
             android:tag="vod_control_pause_time"
-            android:text="00:00:00"
+            android:text="YYYY/MM/DD 00:00:00"
             android:textColor="@android:color/white"
             android:textSize="@dimen/ts_24" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/bottom_container"
         android:layout_width="match_parent"
@@ -87,6 +78,33 @@
         android:visibility="gone"
         tools:visibility="visible">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginBottom="@dimen/vs_20"
+            android:gravity="left"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_info_name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:width="680dp"
+                android:paddingTop="@dimen/vs_20"
+                android:paddingLeft="@dimen/vs_60"
+                android:text="http://"
+				android:shadowColor="@color/color_99000000"
+                android:shadowDx="2.0"
+                android:shadowDy="2.0"
+                android:shadowRadius="3.0"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/ts_30" />
+        </LinearLayout>
+		
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -483,7 +501,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/vs_40"
+        android:layout_marginTop="@dimen/vs_76"
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:tag="play_load_net_speed"
