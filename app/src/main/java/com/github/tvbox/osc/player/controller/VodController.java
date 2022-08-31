@@ -100,7 +100,7 @@ public class VodController extends BaseController {
     LinearLayout mParseRoot;
     TvRecyclerView mGridView;
     TextView mPlayTitle;
-	TextView mPlayTitle1;
+    TextView mPlayTitle1;
     TextView mNextBtn;
     TextView mPreBtn;
     TextView mPlayerScaleBtn;
@@ -147,7 +147,7 @@ public class VodController extends BaseController {
         mCurrentTime = findViewById(R.id.curr_time);
         mTotalTime = findViewById(R.id.total_time);
         mPlayTitle = findViewById(R.id.tv_info_name);
-		mPlayTitle1 = findViewById(R.id.tv_info_name1);
+        mPlayTitle1 = findViewById(R.id.tv_info_name1);
         mSeekBar = findViewById(R.id.seekBar);
         mProgressRoot = findViewById(R.id.tv_progress_container);
         mProgressIcon = findViewById(R.id.tv_progress_icon);
@@ -521,7 +521,7 @@ public class VodController extends BaseController {
 
     public void setTitle(String playTitleInfo) {
         mPlayTitle.setText(playTitleInfo);
-		mPlayTitle1.setText(playTitleInfo);
+        mPlayTitle1.setText(playTitleInfo);
     }
 
     public void resetSpeed() {

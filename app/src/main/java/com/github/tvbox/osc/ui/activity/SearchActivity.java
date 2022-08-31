@@ -155,11 +155,11 @@ public class SearchActivity extends BaseActivity {
             }
         });
         mGridView.setHasFixedSize(true);
-			// lite
+		// lite
         if (Hawk.get(HawkConfig.SEARCH_VIEW, 1) == 0) //SEARCH_VIEW值为1时默认显示缩略图搜索列表
             mGridView.setLayoutManager(new V7LinearLayoutManager(this.mContext, 1, false));
         else
-            // with preview
+        // with preview
             mGridView.setLayoutManager(new V7GridLayoutManager(this.mContext, 3));
         searchAdapter = new SearchAdapter();
         mGridView.setAdapter(searchAdapter);
