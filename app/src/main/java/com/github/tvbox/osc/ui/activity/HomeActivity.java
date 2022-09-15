@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.BounceInterpolator;
 import android.widget.LinearLayout;
@@ -25,11 +26,13 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.viewpager.widget.ViewPager;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.api.ApiConfig;
 import com.github.tvbox.osc.base.BaseActivity;
 import com.github.tvbox.osc.base.BaseLazyFragment;
 import com.github.tvbox.osc.bean.AbsSortXml;
+import com.github.tvbox.osc.bean.Movie;
 import com.github.tvbox.osc.bean.MovieSort;
 import com.github.tvbox.osc.bean.SourceBean;
 import com.github.tvbox.osc.event.RefreshEvent;
@@ -91,7 +94,7 @@ public class HomeActivity extends BaseActivity {
         public void run() {
             Date date = new Date();
             @SuppressLint("SimpleDateFormat")
-            SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy/MM/dd EE HH:mm");
+            SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
             tvDate.setText(timeFormat.format(date));
             mHandler.postDelayed(this, 1000);
         }
@@ -178,18 +181,13 @@ public class HomeActivity extends BaseActivity {
                     BaseLazyFragment baseLazyFragment = fragments.get(currentSelected);
                     if ((baseLazyFragment instanceof GridFragment) && !sortAdapter.getItem(position).filters.isEmpty()) {// 弹出筛选
                         ((GridFragment) baseLazyFragment).showFilter();
-                    } else if (baseLazyFragment instanceof UserFragment) {
+                    }else if (baseLazyFragment instanceof UserFragment) {
                         showSiteSwitch();
-//                        Intent intent =new Intent(getApplicationContext(), HomeActivity.class);
-//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                        Bundle bundle = new Bundle();
-//                        bundle.putBoolean("useCache", true);
-//                        intent.putExtras(bundle);
-//                        HomeActivity.this.startActivity(intent);
                     }
                 }
             }
         });
+
         this.mGridView.setOnInBorderKeyEventListener(new TvRecyclerView.OnInBorderKeyEventListener() {
             public final boolean onInBorderKeyEvent(int direction, View view) {
                 if (direction != View.FOCUS_DOWN) {
@@ -206,14 +204,26 @@ public class HomeActivity extends BaseActivity {
                 return false;
             }
         });
-//        tvName.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                dataInitOk = false;
- //               jarInitOk = true;
-//                showSiteSwitch();
-//            }
-//        });
+        tvName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dataInitOk = false;
+                jarInitOk = true;
+                showSiteSwitch();
+            }
+        });
+        tvName.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Intent intent =new Intent(getApplicationContext(), HomeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("useCache", true);
+                intent.putExtras(bundle);
+                HomeActivity.this.startActivity(intent);
+                return  true;
+            }
+        });
         setLoadSir(this.contentLayout);
         //mHandler.postDelayed(mFindFocus, 500);
     }
@@ -382,7 +392,7 @@ public class HomeActivity extends BaseActivity {
         if (sortAdapter.getData().size() > 0) {
             for (MovieSort.SortData data : sortAdapter.getData()) {
                 if (data.id.equals("my0")) {
-                    if (Hawk.get(HawkConfig.HOME_REC, 1) == 1 && absXml != null && absXml.videoList != null && absXml.videoList.size() > 0) {
+                    if (Hawk.get(HawkConfig.HOME_REC, 0) == 1 && absXml != null && absXml.videoList != null && absXml.videoList.size() > 0) {
                         fragments.add(UserFragment.newInstance(absXml.videoList));
                     } else {
                         fragments.add(UserFragment.newInstance(null));
@@ -492,8 +502,11 @@ public class HomeActivity extends BaseActivity {
     public boolean dispatchKeyEvent(KeyEvent event) {
         if (topHide < 0)
             return false;
+        int keyCode = event.getKeyCode();
         if (event.getAction() == KeyEvent.ACTION_DOWN) {
-
+            if (keyCode == KeyEvent.KEYCODE_MENU) {
+                showSiteSwitch();
+            }
         } else if (event.getAction() == KeyEvent.ACTION_UP) {
 
         }
@@ -580,12 +593,12 @@ public class HomeActivity extends BaseActivity {
                 @Override
                 public void click(SourceBean value, int pos) {
                     ApiConfig.get().setSourceBean(value);
-//                    Intent intent =new Intent(getApplicationContext(), HomeActivity.class);
-//                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                    Bundle bundle = new Bundle();
-//                    bundle.putBoolean("useCache", true);
-//                    intent.putExtras(bundle);
-//                    HomeActivity.this.startActivity(intent);
+                    Intent intent =new Intent(getApplicationContext(), HomeActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    Bundle bundle = new Bundle();
+                    bundle.putBoolean("useCache", true);
+                    intent.putExtras(bundle);
+                    HomeActivity.this.startActivity(intent);
                 }
 
                 @Override
@@ -616,14 +629,14 @@ public class HomeActivity extends BaseActivity {
 //                        getApplicationContext().startActivity(intent);
 //                        System.exit(0);
 
-                        Intent intent =new Intent(getApplicationContext(), HomeActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        Bundle bundle = new Bundle();
-                        bundle.putBoolean("useCache", true);
-                        intent.putExtras(bundle);
-                        HomeActivity.this.startActivity(intent);
-//                        android.os.Process.killProcess(android.os.Process.myPid());
-//                        System.exit(0);
+
+//                        Intent intent =new Intent(getApplicationContext(), HomeActivity.class);
+//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                        Bundle bundle = new Bundle();
+//                        bundle.putBoolean("useCache", true);
+//                        intent.putExtras(bundle);
+//                        HomeActivity.this.startActivity(intent);
+
 
                     }
                 }
