@@ -1,18 +1,14 @@
 apply plugin: 'com.android.application'
 
-def static buildTime() {
-    return new Date().format("yyyyMMdd-HHmm", TimeZone.getTimeZone("GMT+08:00"))
-}
-
 android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId 'com.github.tvbox.Frank'
+        applicationId 'com.github.tvbox.osc'
         minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
-        versionName "Frank".concat("_").concat(buildTime())//根据打包日期生成版本号
+        versionName '1.0.0'
         multiDexEnabled true
         //设置room的Schema的位置
         javaCompileOptions {
@@ -100,4 +96,6 @@ dependencies {
     implementation 'com.owen:tv-recyclerview:3.0.0'
 
     implementation 'com.github.getActivity:XXPermissions:13.6'
+    implementation 'com.github.hedzr:android-file-chooser:v1.2.0-final'
+    implementation 'commons-io:commons-io:2.11.0'
 }
