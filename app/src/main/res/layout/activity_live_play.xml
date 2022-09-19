@@ -581,7 +581,7 @@
 			android:layout_width="@dimen/vs_40"
 			android:layout_height="@dimen/vs_40"
 			android:layout_marginRight="@dimen/vs_10"
-			android:src="@drawable/app_icon"
+			android:src="@drawable/icon_loading"
 			android:layout_alignParentTop="true"
 			android:layout_alignParentRight="true"
 			android:layout_alignParentBottom="true" />
