@@ -51,7 +51,7 @@ public class App extends MultiDexApplication {
         Hawk.init(this).build();
         Hawk.put(HawkConfig.DEBUG_OPEN, false);
 		Hawk.put(HawkConfig.HOME_REC, 1);       // Home Rec 0=豆瓣, 1=站点推荐, 2=历史
-		Hawk.put(HawkConfig.SEARCH_VIEW, 2);    // 文字搜索 or 2缩略图搜索
+		Hawk.put(HawkConfig.SEARCH_VIEW, 1);    // 0 文字搜索列表 1 缩略图搜索列表
         if (!Hawk.contains(HawkConfig.PLAY_TYPE)) {
             Hawk.put(HawkConfig.PLAY_TYPE, 1);
 			
