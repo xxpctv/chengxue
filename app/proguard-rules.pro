@@ -203,4 +203,3 @@
 -keep class com.xunlei.downloadlib.** {*;}
 
 -keep class com.github.tvbox.quickjs.** {*;}
--keep class com.google.gson.**{*;}
