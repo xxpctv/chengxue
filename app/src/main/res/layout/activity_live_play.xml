@@ -303,7 +303,7 @@
 		android:id="@+id/ll_epg"
 		android:paddingBottom="5dp"
 		android:layout_width="@dimen/vs_960"
-		android:layout_height="@dimen/vs_200">
+		android:layout_height="@dimen/vs_250">
 		<View
 			android:id="@+id/view_bg"
 			android:background="@drawable/shape_user_focus"
@@ -314,7 +314,7 @@
 
 		<TextView
 			android:id="@+id/tv_channel_bottom_number"
-			android:layout_width="@dimen/vs_200"
+			android:layout_width="@dimen/vs_250"
 			android:layout_height="wrap_content"
 			android:layout_above="@+id/view_line"
 			android:layout_alignParentLeft="true"
@@ -337,7 +337,7 @@
 
 		<com.github.tvbox.osc.ui.tv.widget.MarqueeTextView
 			android:id="@+id/tv_channel_bar_name"
-			android:layout_width="@dimen/vs_200"
+			android:layout_width="@dimen/vs_250"
 			android:layout_height="wrap_content"
 			android:layout_alignStart="@+id/tv_channel_bottom_number"
 			android:layout_alignLeft="@+id/tv_channel_bottom_number"
