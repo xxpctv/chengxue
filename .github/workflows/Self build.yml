@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+
       - name: Check New Commit
         run: |
           upstreamCode=https://github.com/chengxue2020/q215613905-Tbox
@@ -24,6 +25,7 @@ jobs:
             echo "commit=$commit" >> $GITHUB_ENV
             echo "commitS=${commit:0:7}" >> $GITHUB_ENV
           fi
+
       - name: Checkout Source Code and Zip
         if: ${{ env.commit }}
         run: |
@@ -32,6 +34,7 @@ jobs:
           git checkout ${{ env.commit }}
           echo "tag=$(git log --date=format:'%Y%m%d-%H%M' --pretty=format:%cd ${{ env.commitS }} -1)" >> $GITHUB_ENV
           zip -q -x ".git/*" -r ${{ env.commitS }}-source.zip .
+
       - name: Release Apk Sign
         if: ${{ env.commit }}
         working-directory: TVBoxOSC
@@ -46,6 +49,7 @@ jobs:
           sed -i '$a\RELEASE_KEY_ALIAS=TVBoxOSC'            ./gradle.properties
           sed -i '$a\RELEASE_STORE_PASSWORD=TVBoxOSC'       ./gradle.properties
           sed -i '$a\RELEASE_KEY_PASSWORD=TVBoxOSC'         ./gradle.properties
+
       - name: Build Release With Gradle
         if: ${{ env.commit }}
         working-directory: TVBoxOSC
@@ -72,13 +76,15 @@ jobs:
           for file in `find ~ -name "*debug*.apk" -print`; do
             mv "$file" apk/TVBox_Frank_${{ env.tag }}_Debug.apk
           done
+
       - name: Upload App To Artifact
         uses: actions/upload-artifact@v3
         if: ${{ env.commit }}
         with:
           name: TVBox_Frank_Release_and_Debug
           path: TVBoxOSC/apk/*
-      - name: Release and Upload Assets
+
+      - name: Release and Upload Assets(release area)
         uses: softprops/action-gh-release@v1
         if: ${{ env.commit }}
         with:
