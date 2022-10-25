@@ -400,7 +400,7 @@
 		android:id="@+id/ll_epg"
 		android:paddingBottom="5dp"
 		android:layout_width="@dimen/vs_960"
-		android:layout_height="@dimen/vs_250">
+		android:layout_height="@dimen/vs_140">
 		<View
 			android:id="@+id/view_bg"
 			android:background="@drawable/shape_user_focus"
@@ -421,7 +421,7 @@
 			android:orientation="vertical">
 		<TextView
 			android:id="@+id/tv_channel_bottom_number"
-			android:layout_width="@dimen/vs_250"
+			android:layout_width="@dimen/vs_200"
 			android:layout_height="wrap_content"
 			android:layout_above="@+id/view_line"
 			android:layout_alignParentLeft="true"
@@ -481,7 +481,7 @@
 			</FrameLayout>
 		<com.github.tvbox.osc.ui.tv.widget.MarqueeTextView
 			android:id="@+id/tv_channel_bar_name"
-			android:layout_width="@dimen/vs_250"
+			android:layout_width="@dimen/vs_200"
 			android:layout_height="wrap_content"
 			android:layout_alignStart="@+id/tv_channel_bottom_number"
 			android:layout_alignLeft="@+id/tv_channel_bottom_number"
@@ -721,7 +721,15 @@
 		android:layout_marginRight="25mm"
 
 		android:minWidth="270px">
-
+		<ImageView
+			android:id="@+id/iv_circle_bg"
+			android:layout_width="@dimen/vs_40"
+			android:layout_height="@dimen/vs_40"
+			android:layout_marginRight="@dimen/vs_10"
+			android:src="@drawable/app_icon"
+			android:layout_alignParentTop="true"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentBottom="true" />
 		<ImageView
 			android:layout_width="@dimen/vs_40"
 			android:layout_height="@dimen/vs_40"
@@ -733,7 +741,7 @@
 
 		<com.github.tvbox.osc.ui.tv.widget.MarqueeTextView
 			android:id="@+id/tv_right_top_channel_name"
-			android:layout_width="match_parent"
+			android:layout_width="@dimen/vs_150"
 			android:layout_height="wrap_content"
 			android:layout_alignParentTop="true"
 			android:layout_marginEnd="@dimen/vs_5"
@@ -750,7 +758,7 @@
 
 		<TextView
 			android:id="@+id/tv_right_top_tipnetspeed"
-			android:layout_width="match_parent"
+			android:layout_width="@dimen/vs_150"
 			android:layout_height="wrap_content"
 			android:layout_alignParentBottom="true"
 			android:layout_gravity="center"
