@@ -423,15 +423,9 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
             throws IOException, IllegalArgumentException, SecurityException, IllegalStateException {
         if (headers != null && !headers.isEmpty()) {
             StringBuilder sb = new StringBuilder();
-            if (path.startsWith("http") && path.contains('.mp4')) {
-                headers.put("Content-Type","video/mp4");
-                headers.put("Accept-Ranges","bytes");
-                headers.put("Status","206");
-                headers.put("Cache-control","no-cache");
-            }
             for (Map.Entry<String, String> entry : headers.entrySet()) {
                 sb.append(entry.getKey());
-                sb.append(": ");
+                sb.append(":");
                 String value = entry.getValue();
                 if (!TextUtils.isEmpty(value))
                     sb.append(entry.getValue());
