@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId 'com.github.tvbox.Frank'
-        minSdkVersion 18
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
         versionName "Frank".concat("_").concat(buildTime())//根据打包日期生成版本号
@@ -92,6 +92,7 @@ dependencies {
     implementation 'com.orhanobut:hawk:2.0.1'
 
     implementation project(":player")
+	implementation project(":quickjs")
 
     implementation('org.xwalk:xwalk_shared_library:23.53.589.4') {
         exclude group: 'com.android.support'
@@ -105,6 +106,4 @@ dependencies {
     implementation 'com.github.hedzr:android-file-chooser:v1.2.0-final'
     implementation 'commons-io:commons-io:2.11.0'
     implementation 'com.googlecode.juniversalchardet:juniversalchardet:1.0.3'
-    implementation 'io.github.taoweiji.quickjs:quickjs-android:1.+'
-
 }
