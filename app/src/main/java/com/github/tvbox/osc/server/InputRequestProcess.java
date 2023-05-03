@@ -51,7 +51,7 @@ public class InputRequestProcess implements RequestProcess {
                             break;
                         }
 						case "pushToken":{
-                            mDataReceiver.onTokenReceived(params.get("push_token").trim());
+							mDataReceiver.onTokenReceived(params.get("push_token").trim());
                         }
                     }
                 }
