@@ -10,10 +10,6 @@ function push() {
     doAction('push', { url: $('#push_url').val() });
 }
 
-function pushToken() {
-    doAction('pushToken', { push_token: $('#push_token').val() });
-}
-
 function doAction(action, kv) {
     kv['do'] = action;
     // alert(JSON.stringify(kv));

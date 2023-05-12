@@ -10,7 +10,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +28,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.api.ApiConfig;
-import com.github.tvbox.osc.base.App;
 import com.github.tvbox.osc.base.BaseActivity;
 import com.github.tvbox.osc.base.BaseLazyFragment;
 import com.github.tvbox.osc.bean.AbsSortXml;
@@ -172,7 +170,7 @@ public class HomeActivity extends BaseActivity {
                     textView.setTextColor(HomeActivity.this.getResources().getColor(R.color.color_FFFFFF));
                     textView.invalidate();
                     MovieSort.SortData sortData = sortAdapter.getItem(position);
-                    if (sortData != null && !sortData.filters.isEmpty()) {
+                    if (!sortData.filters.isEmpty()) {
                         showFilterIcon(sortData.filterSelectCount());
                     }
                     HomeActivity.this.sortFocusView = view;
@@ -490,18 +488,6 @@ public class HomeActivity extends BaseActivity {
             if (currentView != null) {
                 showFilterIcon((int) event.obj);
             }
-        } else if (event.type == RefreshEvent.RE_LOAD_HOME_DATA) {
-            dataInitOk = false;
-            jarInitOk = false;
-            initData();
-        } else if (event.type == RefreshEvent.ALI_TOKEN) {
-            Toast.makeText(mContext, "已获取到alitoken,重新加载数据", Toast.LENGTH_SHORT).show();
-            Hawk.put(HawkConfig.ALI_TOKEN, event.obj + "");
-            new Handler(Looper.getMainLooper()).postDelayed(() -> {
-                Intent intent = new Intent(App.getInstance(),HomeActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                jumpActivity(HomeActivity.class);
-            }, 1000);
         }
     }
 
@@ -620,7 +606,7 @@ public class HomeActivity extends BaseActivity {
             SelectDialog<SourceBean> dialog = new SelectDialog<>(HomeActivity.this);
             TvRecyclerView tvRecyclerView = dialog.findViewById(R.id.list);
             int spanCount;
-            spanCount = (int) Math.floor(sites.size()/60);
+            spanCount = (int)Math.floor(sites.size()/60);
             spanCount = Math.min(spanCount, 2);
             tvRecyclerView.setLayoutManager(new V7GridLayoutManager(dialog.getContext(), spanCount+1));
             ConstraintLayout cl_root = dialog.findViewById(R.id.cl_root);

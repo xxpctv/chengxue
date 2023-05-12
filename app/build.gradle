@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId 'com.github.tvbox.Frank'
-        minSdkVersion 18
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
         versionName "Frank".concat("_").concat(buildTime())//根据打包日期生成版本号
