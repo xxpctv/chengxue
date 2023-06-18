@@ -1,4 +1,5 @@
 <resources>
     <!--  app名称   -->
     <string name="app_name">TVBox_3.0</string>
+	<string name="mn_Version">20230601-1755</string>
 </resources>
