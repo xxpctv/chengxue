@@ -61,3 +61,19 @@ https://github.com/chengxue2020/q215613905-Tbox/blob/main/app/src/main/java/com/
 
 9、修改点播界面进度条颜色
 https://github.com/chengxue2020/q215613905-Tbox/blob/main/app/src/main/res/drawable/shape_player_control_vod_seek.xml
+
+10、修改首页源列数
+
+app/src/main/java/com/github/tvbox/osc/ui/activity/LivePlayActivity.java
+
+471行
+
+首页换源动态列数
+
+app/src/main/java/com/github/tvbox/osc/ui/activity/HomeActivity.java
+
+609行 spanCount = (int)Math.floor(sites.size()/60);
+
+        spanCount = Math.min(spanCount, 2);
+	
+Q版624行，T版770行
