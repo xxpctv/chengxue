@@ -64,8 +64,7 @@ https://github.com/chengxue2020/q215613905-Tbox/blob/main/app/src/main/res/drawa
 
 10、修改EPG
 tk版178行 俊版204行
-
-app/src/main/java/com/github/tvbox/osc/ui/activity/LivePlayActivity.java
+ https://github.com/chengxue2020/q215613905-Tbox/blob/main/app/src/main/java/com/github/tvbox/osc/ui/activity/LivePlayActivity.java
 
 // Getting EPG Address epgStringAddress = Hawk.get(HawkConfig.EPG_URL, ""); 
 if (StringUtils.isBlank(epgStringAddress)) { epgStringAddress = "https://epg.112114.xyz/"; 
@@ -74,7 +73,7 @@ if (StringUtils.isBlank(epgStringAddress)) { epgStringAddress = "https://epg.112
 
 11、修改首页源列数
 
-app/src/main/java/com/github/tvbox/osc/ui/activity/HomeActivity.java
+ https://github.com/chengxue2020/q215613905-Tbox/blob/main/app/src/main/java/com/github/tvbox/osc/ui/activity/HomeActivity.java
 
 624行 spanCount = (int)Math.floor(sites.size()/60);
 
