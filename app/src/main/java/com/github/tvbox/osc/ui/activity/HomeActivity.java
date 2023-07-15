@@ -115,7 +115,7 @@ public class HomeActivity extends BaseActivity {
     @Override
     protected void init() {
 		
-		// 使程序可以读取string
+		// 使程序可以读取string值
 		res = getResources();
 		
         EventBus.getDefault().register(this);
