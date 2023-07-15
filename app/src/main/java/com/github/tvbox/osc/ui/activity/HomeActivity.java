@@ -8,6 +8,7 @@ import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
@@ -70,6 +71,10 @@ import java.util.List;
 import me.jessyan.autosize.utils.AutoSizeUtils;
 
 public class HomeActivity extends BaseActivity {
+	
+	// 使程序可以读取string
+    private static Resources res;
+	
     private LinearLayout topLayout;
     private LinearLayout contentLayout;
     private TextView tvDate;
@@ -109,6 +114,10 @@ public class HomeActivity extends BaseActivity {
 
     @Override
     protected void init() {
+		
+		// 使程序可以读取string
+		res = getResources();
+		
         EventBus.getDefault().register(this);
         ControlManager.get().startServer();
         initView();
@@ -122,6 +131,11 @@ public class HomeActivity extends BaseActivity {
         initData();
     }
 
+		// 使程序可以读取string
+		public static Resources getRes() {
+        return res;
+    }
+		
     private void initView() {
         this.topLayout = findViewById(R.id.topLayout);
         this.tvDate = findViewById(R.id.tvDate);
