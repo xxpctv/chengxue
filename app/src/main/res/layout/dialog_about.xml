@@ -14,17 +14,12 @@
 		android:layout_marginRight="@dimen/vs_20" 
 		android:layout_weight="1.0">
 	
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:src="@drawable/app_icon" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:padding="@dimen/vs_10" >
+		<ImageView
+			android:layout_width="80dp"
+			android:layout_height="80dp"
+			android:layout_gravity="center"
+			android:src="@drawable/app_icon" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,7 +31,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/ts_16" />
-    </LinearLayout>
 	
 		<TextView
 			android:layout_width="@dimen/vs_600"
