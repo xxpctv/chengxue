@@ -3,7 +3,7 @@ name: Auto Build self
 on:
   push:
     branches:
-      - main
+      - Dev
   pull_request:
   workflow_dispatch:
 
