@@ -46,6 +46,17 @@ https://github.com/chengxue2020/q215613905-Tbox/blob/main/app/src/main/java/com/
         }
     }
 
+或
+        //自定义默认配置，硬解，安全dns，缩略图
+        if (!Hawk.contains(HawkConfig.IJK_CODEC)) {
+            Hawk.put(HawkConfig.IJK_CODEC, "硬解码");
+        }
+        if (!Hawk.contains(HawkConfig.DOH_URL)) {
+            Hawk.put(HawkConfig.DOH_URL, 2);
+        }
+        if (!Hawk.contains(HawkConfig.SEARCH_VIEW)) {
+            Hawk.put(HawkConfig.SEARCH_VIEW, 2);
+        }
 
 6、修改直播界面频道列表中跳动条的颜色、个数
 https://github.com/chengxue2020/q215613905-Tbox/blob/main/app/src/main/java/com/github/tvbox/osc/ui/tv/widget/AudioWaveView.java
