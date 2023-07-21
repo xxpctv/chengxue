@@ -87,8 +87,8 @@ if (StringUtils.isBlank(epgStringAddress)) { epgStringAddress = "https://epg.112
 
  https://github.com/chengxue2020/q215613905-Tbox/blob/main/app/src/main/java/com/github/tvbox/osc/ui/activity/HomeActivity.java
 
-624行 spanCount = (int)Math.floor(sites.size()/60);
-
+624行
+	spanCount = (int)Math.floor(sites.size()/60);
         spanCount = Math.min(spanCount, 2);
 	
 Q版624行，T版770行
