@@ -36,8 +36,8 @@ public class UpdateManager {
     private boolean isNew = false;
     private boolean intercept = false;
     // 下载安装包的网络路径
-    private String apkUrl = "http://3.36.153.51:52828/%E8%BF%85%E9%9B%B7%E4%BA%91%E7%9B%98/apk/"
-            + "舒夏影视.apk";
+    private String apkUrl = "https://chengxue2020.github.io/Cat-ports/App/"
+            + "app.apk";
     // 保存APK的文件夹
     private static String savePath;
     //apk文件的绝对路径
@@ -81,7 +81,7 @@ public class UpdateManager {
         try {
             //下载网站的json数据包，根据数据包的版本来判断当前版本是否需要被替换
             //这里的StreamUtil().getjson()是我自己写的一个工具类，里面的getjson()方法能获取给定uri的json文件，小伙伴们可以自行搜索或者自力更生写一个工具类
-            String json = new StreamUtil().getjson("http://3.36.153.51:52828/%E8%BF%85%E9%9B%B7%E4%BA%91%E7%9B%98/"
+            String json = new StreamUtil().getjson("https://chengxue2020.github.io/Cat-ports/App/"
                     + "update.json");
             JSONObject jo = new JSONObject(json);
             int versionCode = jo.getInt("versionCode");//获取版本代号
@@ -113,7 +113,7 @@ public class UpdateManager {
     private void showUpdateDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
         builder.setTitle("软件版本更新");
-        builder.setMessage("舒夏影视有最新版本，是否下载!");
+        builder.setMessage("软件有最新版本，是否下载!");
         builder.setPositiveButton("下载", new DialogInterface.OnClickListener() {
  
             @Override
