@@ -82,7 +82,7 @@ public class UpdateManager {
             //下载网站的json数据包，根据数据包的版本来判断当前版本是否需要被替换
             //这里的StreamUtil().getjson()是我自己写的一个工具类，里面的getjson()方法能获取给定uri的json文件，小伙伴们可以自行搜索或者自力更生写一个工具类
             String json = new StreamUtil().getjson("https://chengxue2020.github.io/Cat-ports/App/"
-                    + "update.json");
+                    + "up.json");
             JSONObject jo = new JSONObject(json);
             int versionCode = jo.getInt("versionCode");//获取版本代号
             Log.i("本软件版本号", Integer.toString(UpdateManager.getVersionCode(mContext)));
