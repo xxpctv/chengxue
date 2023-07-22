@@ -11,7 +11,7 @@ android {
         applicationId 'com.github.tvbox.Frank'
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode concat(buildTime())//根据打包日期生成版本号
+        versionCode 1
         versionName "Frank".concat("_").concat(buildTime())//根据打包日期生成版本号
         multiDexEnabled true
         //设置room的Schema的位置
