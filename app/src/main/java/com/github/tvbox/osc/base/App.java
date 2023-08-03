@@ -19,6 +19,8 @@ import com.github.tvbox.osc.util.js.JSEngine;
 import com.kingja.loadsir.core.LoadSir;
 import com.orhanobut.hawk.Hawk;
 import com.p2p.P2PClass;
+import com.github.catvod.crawler.SpiderNull;
+import com.undcover.freedom.pyramid.PythonLoader;
 
 import me.jessyan.autosize.AutoSizeConfig;
 import me.jessyan.autosize.unit.Subunits;
@@ -57,6 +59,7 @@ public class App extends MultiDexApplication {
         PlayerHelper.init();
         JSEngine.getInstance().create();
         FileUtils.cleanPlayerCache();
+		PythonLoader.getInstance().setApplication(this);
     }
 
     private void initParams() {

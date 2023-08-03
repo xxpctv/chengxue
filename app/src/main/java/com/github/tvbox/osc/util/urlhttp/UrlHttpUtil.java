@@ -10,6 +10,8 @@ import java.util.Map;
 
 public class UrlHttpUtil {
     private static final String METHOD_GET = "GET";
+	private static final String METHOD_SYNC_GET = "syncGET";
+	
     private static final String METHOD_POST = "POST";
 
     public static final String FILE_TYPE_FILE = "file/*";
@@ -26,7 +28,11 @@ public class UrlHttpUtil {
         get(url, null, null, callBack);
     }
 
-    /**
+    public static void syncGet(String url, CallBackUtil callBack) {
+        syncGet(url, null, null, callBack);
+    }
+	
+	/**
      * get请求，可以传递参数
      * @param url：url
      * @param paramsMap：map集合，封装键值对参数
@@ -47,7 +53,11 @@ public class UrlHttpUtil {
         new RequestUtil(METHOD_GET, url, paramsMap, headerMap, callBack).execute();
     }
 
-    /**
+    public static void syncGet(String url, Map<String, String> paramsMap, Map<String, String> headerMap, CallBackUtil callBack) {
+        new RequestUtil(METHOD_SYNC_GET, url, paramsMap, headerMap, callBack).execute();
+    }
+	
+	/**
      * post请求
      * @param url：url
      * @param callBack：回调接口，onFailure方法在请求失败时调用，onResponse方法在请求成功后调用，这两个方法都执行在UI线程。

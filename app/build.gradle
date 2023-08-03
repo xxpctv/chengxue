@@ -7,6 +7,21 @@ def static buildTime() {
 android {
     compileSdkVersion 30
 
+signingConfigs {
+        if (project.hasProperty("RELEASE_STORE_FILE")) {
+            myConfig {
+                storeFile file(RELEASE_STORE_FILE)
+                storePassword RELEASE_STORE_PASSWORD
+                keyAlias RELEASE_KEY_ALIAS
+                keyPassword RELEASE_KEY_PASSWORD
+                v1SigningEnabled true
+                v2SigningEnabled true
+                enableV3Signing = true
+                enableV4Signing = true
+            }
+        }
+    }
+	
     defaultConfig {
         applicationId 'com.github.tvbox.Frank'
         minSdkVersion 16
@@ -28,6 +43,9 @@ android {
 
     buildTypes {
         debug {
+			if (project.hasProperty("RELEASE_STORE_FILE")) {
+                signingConfig signingConfigs.myConfig
+            }
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             minifyEnabled false
 
@@ -36,6 +54,9 @@ android {
             }
         }
         release {
+			if (project.hasProperty("RELEASE_STORE_FILE")) {
+                signingConfig signingConfigs.myConfig
+            }
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             minifyEnabled true
 
@@ -63,7 +84,8 @@ android {
 }
 
 dependencies {
-    api fileTree(dir: "libs", include: ["*.jar"])
+    api fileTree(dir: "libs", include: ["*.aar","*.jar"])
+    implementation 'com。github。smart-fun:XmlToJson:1.5。1'    // add this line
 
 
     implementation 'org.nanohttpd:nanohttpd:2.3.1'
@@ -72,8 +94,10 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
-    implementation files('libs/thunder.jar')
-    implementation files('libs/commons-lang3-3.12.0.jar')
+    implementation files('libs\\thunder.jar')
+    implementation files('libs\\pyramid.aar')
+    implementation files('libs\\dmk.aar')
+    implementation files('libs\\commons-lang3-3.12.0.jar')
 
     implementation 'com.squareup.okhttp3:okhttp:3.12.11'
     annotationProcessor 'androidx.room:room-compiler:2.3.0'
@@ -106,4 +130,5 @@ dependencies {
     implementation 'com.github.hedzr:android-file-chooser:v1.2.0-final'
     implementation 'commons-io:commons-io:2.11.0'
     implementation 'com.googlecode.juniversalchardet:juniversalchardet:1.0.3'
+	implementation 'org.java-websocket:Java-WebSocket:1.5.3'
 }

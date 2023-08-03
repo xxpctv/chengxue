@@ -4,9 +4,14 @@ buildscript {
         gradlePluginPortal()
         google()
         mavenCentral()
+		jcenter()
         maven { url "https://jitpack.io" }
         //maven { url 'https://download.01.org/crosswalk/releases/crosswalk/android/maven2' }
         maven { url 'http://home.jundie.top:81/xwalk/maven2' }
+		flatDir {
+            dirs 'libs'
+        }
+		
 //        maven { url 'http://9xi4o.tk/maven2' }
     }
     dependencies {
@@ -22,6 +27,7 @@ allprojects {
         gradlePluginPortal()
         google()
         mavenCentral()
+		jcenter()
         maven { url "https://jitpack.io" }
         //maven { url 'https://download.01.org/crosswalk/releases/crosswalk/android/maven2' }
 //        maven { url 'http://9xi4o.tk/maven2' }
