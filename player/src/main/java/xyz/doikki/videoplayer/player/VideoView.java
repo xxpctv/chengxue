@@ -99,10 +99,10 @@ public class VideoView<P extends AbstractPlayer> extends FrameLayout
 
     protected boolean mIsTinyScreen;//是否处于小屏状态
     protected int[] mTinyScreenSize = {0, 0};
-
+    
     protected IDanmakuView danmakuView;
-	
-	/**
+
+    /**
      * 监听系统中音频焦点改变，见{@link #setEnableAudioFocus(boolean)}
      */
     protected boolean mEnableAudioFocus;
@@ -221,8 +221,8 @@ public class VideoView<P extends AbstractPlayer> extends FrameLayout
         }
 
     }
-	
-	/**
+
+    /**
      * 是否显示移动网络提示，可在Controller中配置
      */
     protected boolean showNetWarning() {
@@ -331,6 +331,7 @@ public class VideoView<P extends AbstractPlayer> extends FrameLayout
             mAudioFocusHelper.requestFocus();
         }
         mPlayerContainer.setKeepScreenOn(true);
+
     }
 
     /**
@@ -344,7 +345,7 @@ public class VideoView<P extends AbstractPlayer> extends FrameLayout
             if(this.danmakuView != null && danmakuView.isPrepared()){
                 this.danmakuView.pause();
             }
-			setPlayState(STATE_PAUSED);
+            setPlayState(STATE_PAUSED);
             if (mAudioFocusHelper != null && !isMute()) {
                 mAudioFocusHelper.abandonFocus();
             }
@@ -362,7 +363,7 @@ public class VideoView<P extends AbstractPlayer> extends FrameLayout
             if (danmakuView != null && danmakuView.isPrepared() && danmakuView.isPaused()) {
                 this.danmakuView.resume();
             }
-			setPlayState(STATE_PLAYING);
+            setPlayState(STATE_PLAYING);
             if (mAudioFocusHelper != null && !isMute()) {
                 mAudioFocusHelper.requestFocus();
             }
@@ -384,7 +385,7 @@ public class VideoView<P extends AbstractPlayer> extends FrameLayout
                 this.danmakuView.release();
                 this.danmakuView = null;
             }
-			//释放renderView
+            //释放renderView
             if (mRenderView != null) {
                 mPlayerContainer.removeView(mRenderView.getView());
                 mRenderView.release();
@@ -562,7 +563,7 @@ public class VideoView<P extends AbstractPlayer> extends FrameLayout
                     long cur = getCurrentPosition();
                     this.danmakuView.seekTo(cur);
                 }
-				break;
+                break;
             case AbstractPlayer.MEDIA_INFO_RENDERING_START: // 视频/音频开始渲染
                 setPlayState(STATE_PLAYING);
                 mPlayerContainer.setKeepScreenOn(true);
@@ -570,7 +571,7 @@ public class VideoView<P extends AbstractPlayer> extends FrameLayout
                     long cur = getCurrentPosition();
                     this.danmakuView.seekTo(cur);
                 }
-				break;
+                break;
             case AbstractPlayer.MEDIA_INFO_VIDEO_ROTATION_CHANGED:
                 if (mRenderView != null) mRenderView.setVideoRotation(extra);
                 break;
@@ -1032,8 +1033,8 @@ public class VideoView<P extends AbstractPlayer> extends FrameLayout
     public void setDanmuView(master.flame.danmaku.controller.IDanmakuView danmakuView) {
         this.danmakuView = danmakuView;
     }
-	
-	/**
+
+    /**
      * 播放状态改变监听器
      */
     public interface OnStateChangeListener {
