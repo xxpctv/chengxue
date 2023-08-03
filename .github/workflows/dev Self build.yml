@@ -1,4 +1,4 @@
-name: Auto Build self
+name: dev Auto Build self
 
 on:
   push:
