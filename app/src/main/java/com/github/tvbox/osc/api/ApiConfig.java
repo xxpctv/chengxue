@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.undcover.freedom.pyramid.PythonLoader;
-import com.github.catvod.crawler.SpiderNull;
 
 import com.github.catvod.crawler.JarLoader;
 import com.github.catvod.crawler.JsLoader;
@@ -129,7 +127,7 @@ public class ApiConfig {
     }
 
     public void loadConfig(boolean useCache, LoadConfigCallback callback, Activity activity) {
-        String apiUrl = Hawk.get(HawkConfig.API_URL, "https://chengxue2020.github.io/Cat-ports/main.json");
+        String apiUrl = Hawk.get(HawkConfig.API_URL, "https://gitee.com/xisohi/xhysyuan/raw/master/XC.json");
         if (apiUrl.isEmpty()) {
             callback.error("-1");
             return;
@@ -304,7 +302,6 @@ public class ApiConfig {
     }
 
     private void parseJson(String apiUrl, String jsonStr) {
-		PythonLoader.getInstance().setConfig(jsonStr);
         JsonObject infoJson = new Gson().fromJson(jsonStr, JsonObject.class);
         // spider
         spider = DefaultConfig.safeJsonString(infoJson, "spider", "");
@@ -586,33 +583,10 @@ public class ApiConfig {
     public Spider getCSP(SourceBean sourceBean) {
         boolean js = sourceBean.getApi().endsWith(".js") || sourceBean.getApi().contains(".js?");
         if (js) return jsLoader.getSpider(sourceBean.getKey(), sourceBean.getApi(), sourceBean.getExt(), sourceBean.getJar());
-		if (sourceBean.getApi().startsWith("py_")) {
-        try {
-            return PythonLoader.getInstance().getSpider(sourceBean.getKey(), sourceBean.getExt());
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new SpiderNull();
-        }
-    }
         return jarLoader.getSpider(sourceBean.getKey(), sourceBean.getApi(), sourceBean.getExt(), sourceBean.getJar());
     }
 
     public Object[] proxyLocal(Map param) {
-		try {
-        if(param.containsKey("api")){
-            String doStr = param.get("do").toString();
-            if(doStr.equals("ck"))
-                return PythonLoader.getInstance().proxyLocal("","",param);
-            SourceBean sourceBean = ApiConfig.get().getSource(doStr);
-            return PythonLoader.getInstance().proxyLocal(sourceBean.getKey(),sourceBean.getExt(),param);
-        }else{
-            String doStr = param.get("do").toString();
-            if(doStr.equals("live")) return PythonLoader.getInstance().proxyLocal("","",param);
-        }
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-
         return jarLoader.proxyInvoke(param);
     }
 

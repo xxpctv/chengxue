@@ -1,33 +1,14 @@
 apply plugin: 'com.android.application'
 
-def static buildTime() {
-    return new Date().format("yyyyMMdd-HHmm", TimeZone.getTimeZone("GMT+08:00"))
-}
-
 android {
     compileSdkVersion 30
 
-signingConfigs {
-        if (project.hasProperty("RELEASE_STORE_FILE")) {
-            myConfig {
-                storeFile file(RELEASE_STORE_FILE)
-                storePassword RELEASE_STORE_PASSWORD
-                keyAlias RELEASE_KEY_ALIAS
-                keyPassword RELEASE_KEY_PASSWORD
-                v1SigningEnabled true
-                v2SigningEnabled true
-                enableV3Signing = true
-                enableV4Signing = true
-            }
-        }
-    }
-	
     defaultConfig {
-        applicationId 'com.github.tvbox.Frank'
+        applicationId 'com.github.tvbox.osc'
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 1
-        versionName "Frank".concat("_").concat(buildTime())//根据打包日期生成版本号
+        versionCode 230806
+        versionName '23.08.06'
         multiDexEnabled true
         //设置room的Schema的位置
         javaCompileOptions {
@@ -43,9 +24,6 @@ signingConfigs {
 
     buildTypes {
         debug {
-			if (project.hasProperty("RELEASE_STORE_FILE")) {
-                signingConfig signingConfigs.myConfig
-            }
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             minifyEnabled false
 
@@ -54,9 +32,6 @@ signingConfigs {
             }
         }
         release {
-			if (project.hasProperty("RELEASE_STORE_FILE")) {
-                signingConfig signingConfigs.myConfig
-            }
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             minifyEnabled true
 
@@ -84,8 +59,7 @@ signingConfigs {
 }
 
 dependencies {
-    api fileTree(dir: "libs", include: ["*.aar","*.jar"])
-    implementation 'com.github.smart-fun:XmlToJson:1.5.1'    // add this line
+    api fileTree(dir: "libs", include: ["*.jar"])
 
 
     implementation 'org.nanohttpd:nanohttpd:2.3.1'
@@ -94,10 +68,22 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
-    implementation files('libs\\thunder.jar')
-    implementation files('libs\\pyramid.aar')
-    implementation files('libs\\dmk.aar')
-    implementation files('libs\\commons-lang3-3.12.0.jar')
+    implementation files('libs/thunder.jar')
+    implementation files('libs/commons-lang3-3.12.0.jar')
+    implementation 'com.github.xuexiangjys:XUpdate:2.1.4'
+    implementation 'com.github.xuexiangjys.XUpdateAPI:xupdate-easy:1.0.1' 
+// 如果需要使用断点续传下载功能的话添加该依赖（可选） 
+    implementation 'com.github.xuexiangjys.XUpdateAPI:xupdate-downloader-aria:1.0.1'
+    implementation 'com.github.xuexiangjys.XAOP:xaop-runtime:1.1.0'
+    implementation 'com.github.xuexiangjys.XUtil:xutil-core:2.0.0'
+    implementation 'com.github.xuexiangjys.XUtil:xutil-sub:2.0.0'
+    implementation 'com.github.xuexiangjys.XPage:xpage-lib:3.2.0'
+    annotationProcessor 'com.github.xuexiangjys.XPage:xpage-compiler:3.2.0'
+    implementation 'com.jakewharton:butterknife:10.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+
+
+
 
     implementation 'com.squareup.okhttp3:okhttp:3.12.11'
     annotationProcessor 'androidx.room:room-compiler:2.3.0'
@@ -116,7 +102,7 @@ dependencies {
     implementation 'com.orhanobut:hawk:2.0.1'
 
     implementation project(":player")
-	implementation project(":quickjs")
+    implementation project(":quickjs")
 
     implementation('org.xwalk:xwalk_shared_library:23.53.589.4') {
         exclude group: 'com.android.support'
@@ -130,5 +116,4 @@ dependencies {
     implementation 'com.github.hedzr:android-file-chooser:v1.2.0-final'
     implementation 'commons-io:commons-io:2.11.0'
     implementation 'com.googlecode.juniversalchardet:juniversalchardet:1.0.3'
-	implementation 'org.java-websocket:Java-WebSocket:1.5.3'
 }

@@ -21,10 +21,7 @@ class RequestUtil{
      */
     RequestUtil(String method,String url, Map<String, String> paramsMap, Map<String, String> headerMap, CallBackUtil callBack) {
         switch (method){
-            case "syncGET":
-                urlHttpSyncGet(url, paramsMap, headerMap, callBack);
-                break;
-			case "GET":
+            case "GET":
             urlHttpGet(url,paramsMap,headerMap,callBack);
             break;
             case "POST":
@@ -65,20 +62,6 @@ class RequestUtil{
         });
     }
 
-
-
-    /**
-     * get请求
-     */
-    private void urlHttpSyncGet(final String url, final Map<String, String> paramsMap, final Map<String, String> headerMap, final CallBackUtil callBack) {
-        RealResponse response = new RealRequest().getData(getUrl(url, paramsMap), headerMap);
-        if (response.code == HttpURLConnection.HTTP_OK) {
-            callBack.onSeccess(response);
-        } else {
-            callBack.onError(response);
-        }
-    }
-	
     /**
      * post请求
      */

@@ -117,7 +117,6 @@ public class VodController extends BaseController {
     public TextView mPlayerSpeedBtn;
     TextView mPlayerBtn;
     TextView mPlayerIJKBtn;
-	TextView mDanmuBtn;
     TextView mPlayerRetry;
     TextView mPlayrefresh;
     public TextView mPlayerTimeStartEndText;
@@ -184,7 +183,6 @@ public class VodController extends BaseController {
         mPlayerSpeedBtn = findViewById(R.id.play_speed);
         mPlayerBtn = findViewById(R.id.play_player);
         mPlayerIJKBtn = findViewById(R.id.play_ijk);
-		mDanmuBtn = findViewById(R.id.danmu);
         mPlayerTimeStartEndText = findViewById(R.id.play_time_start_end_text);
         mPlayerTimeStartBtn = findViewById(R.id.play_time_start);
         mPlayerTimeSkipBtn = findViewById(R.id.play_time_end);
@@ -474,17 +472,6 @@ public class VodController extends BaseController {
                 mPlayerIJKBtn.requestFocusFromTouch();
             }
         });
-		mDanmuBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                  listener.toggleDanmu();
-                  if(String.valueOf(mDanmuBtn.getText()).equalsIgnoreCase("弹幕开")){
-                      mDanmuBtn.setText("弹幕关");
-                  }else {
-                      mDanmuBtn.setText("弹幕开");
-                  }
-            }
-        });
 //        增加播放页面片头片尾时间重置
         mPlayerTimeResetBtn.setOnClickListener(new OnClickListener() {
             @Override
@@ -712,8 +699,6 @@ public class VodController extends BaseController {
         void selectSubtitle();
 
         void selectAudioTrack();
-		
-		void toggleDanmu();
     }
 
     public void setListener(VodControlListener listener) {

@@ -36,7 +36,6 @@ import com.github.tvbox.osc.bean.SourceBean;
 import com.github.tvbox.osc.event.RefreshEvent;
 import com.github.tvbox.osc.server.ControlManager;
 import com.github.tvbox.osc.ui.adapter.HomePageAdapter;
-import com.github.tvbox.osc.ui.activity.UpdateManager;
 import com.github.tvbox.osc.ui.adapter.SelectDialogAdapter;
 import com.github.tvbox.osc.ui.adapter.SortAdapter;
 import com.github.tvbox.osc.ui.dialog.SelectDialog;
@@ -95,7 +94,7 @@ public class HomeActivity extends BaseActivity {
         public void run() {
             Date date = new Date();
             @SuppressLint("SimpleDateFormat")
-            SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy/MM/dd EE HH:mm");
+            SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
             tvDate.setText(timeFormat.format(date));
             mHandler.postDelayed(this, 1000);
         }
@@ -193,62 +192,10 @@ public class HomeActivity extends BaseActivity {
                 }
             }
         });
-RetrofitRequest.sendGetRequest(Constant.URL_APP_VERSION, new RetrofitRequest.ResultHandler(context) {
-    ...
-    @Override
-    public void onResult(String response) {
-        if (response == null || response.trim().length() == 0) {
-            Toast.makeText(context, R.string.layout_version_no_new, Toast.LENGTH_SHORT).show();
-            LoadingDialog.close();
-            return;
-        }
-        try {
-            JSONObject jsonObject = new JSONObject(response);
-            if (!jsonObject.has("versionCode") || !jsonObject.has("fileName")) {
-                Toast.makeText(context, R.string.layout_version_no_new, Toast.LENGTH_SHORT).show();
-                LoadingDialog.close();
-                return;
-            }
-            newVersionCode = jsonObject.getInt("versionCode");
-            newFileName = jsonObject.getString("fileName");
-            int versionCode = VersionUtil.getVersionCode(context);
-            LoadingDialog.close();
-            if (newVersionCode > versionCode) {
-                showUpdateDialog(newFileName);
-            } else {
-                if (!isAutoCheck) {
-                    Toast.makeText(context, R.string.layout_version_no_new, Toast.LENGTH_SHORT).show();
-                }
-            }
-        } catch (JSONException e) {
-            Toast.makeText(context, R.string.layout_version_no_new, Toast.LENGTH_SHORT).show();
-            LoadingDialog.close();
-        }
-    }
-...
-});
-private void showUpdateDialog(final String fileName) {
-    ConfirmDialog dialog = new ConfirmDialog(context, new ConfirmDialog.OnClickListener() {
-        @Override
-        public void onConfirm() {
-            showDownloadDialog(fileName);
-        }
-    });
-    dialog.setTitle(R.string.note_confirm_title);
-    dialog.setContent(R.string.layout_version_new);
-    dialog.setConfirmText(R.string.layout_yes);
-    dialog.setCancelText(R.string.layout_no);
-    dialog.show();
-}
+
         this.mGridView.setOnInBorderKeyEventListener(new TvRecyclerView.OnInBorderKeyEventListener() {
             public final boolean onInBorderKeyEvent(int direction, View view) {
-                if(direction == View.FOCUS_UP){
-                    BaseLazyFragment baseLazyFragment = fragments.get(sortFocused);
-                    if ((baseLazyFragment instanceof GridFragment) ) {// 弹出筛选
-                         ((GridFragment) baseLazyFragment).forceRefresh();
-                    }
-                }
-				if (direction != View.FOCUS_DOWN) {
+                if (direction != View.FOCUS_DOWN) {
                     return false;
                 }
                 isDownOrUp = true;
@@ -330,7 +277,7 @@ private void showUpdateDialog(final String fileName) {
                             @Override
                             public void run() {
                                 if (!useCacheConfig)
-                                    Toast.makeText(HomeActivity.this, "配置加载成功", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(HomeActivity.this, "自定义jar加载成功", Toast.LENGTH_SHORT).show();
                                 initData();
                             }
                         }, 50);
@@ -347,7 +294,7 @@ private void showUpdateDialog(final String fileName) {
                         mHandler.post(new Runnable() {
                             @Override
                             public void run() {
-                                Toast.makeText(HomeActivity.this, "配置加载失败", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(HomeActivity.this, "jar加载失败", Toast.LENGTH_SHORT).show();
                                 initData();
                             }
                         });

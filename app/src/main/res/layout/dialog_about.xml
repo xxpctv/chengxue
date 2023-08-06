@@ -6,7 +6,11 @@
     android:background="@drawable/shape_dialog_bg_main"
     android:orientation="vertical"
     android:padding="@dimen/vs_30">
-
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:src="@drawable/app_icon" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,14 +29,16 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/ts_16" />
     </LinearLayout>
-
     <TextView
         android:layout_width="@dimen/vs_600"
         android:layout_height="wrap_content"
-        android:lineSpacingExtra="@dimen/ts_22"
+        android:lineSpacingExtra="@dimen/ts_24"
         android:lineSpacingMultiplier="0"
-        android:text="@string/dia_about"
+        android:text="本软件只提供聚合展示功能，所有资源来自网上, 软件不参与任何制作, 上传, 储存, 下载等内容. 软件仅供学习参考, 请于安装后24小时内删除。\n\n打包分发请保留出处\nhttps://github.com/CatVodTVOfficial/TVBoxOSC\nhttps://github.com/xisohi/XHYS(TV)"
         android:textColor="@color/color_CC000000"
         android:textSize="@dimen/ts_22" />
+
+
+    </LinearLayout>
 
 </LinearLayout>

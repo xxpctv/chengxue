@@ -6,8 +6,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.widget.ImageView;
 
-import org.apache.commons.io.IOUtils;
-
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -93,19 +91,7 @@ public abstract class CallBackUtil<T> {
     }
 
 
-    public static abstract class CallBackStream extends CallBackUtil<InputStream> {
-        @Override
-        public InputStream onParseResponse(RealResponse response) {
-            try {
-                return response.inputStream;
-            } catch (Exception e) {
-                throw new RuntimeException("failure");
-            }
-        }
-    }
-	
-	
-	public static abstract class CallBackBitmap extends CallBackUtil<Bitmap> {
+    public static abstract class CallBackBitmap extends CallBackUtil<Bitmap> {
         private int mTargetWidth;
         private int mTargetHeight;
 
