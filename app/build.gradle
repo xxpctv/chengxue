@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId 'com.github.tvbox.Frank'
-        minSdkVersion 16
+        minSdkVersion 18
         targetSdkVersion 26
         versionCode 1
         versionName "Frank".concat("_").concat(buildTime())//根据打包日期生成版本号
@@ -72,7 +72,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
-    implementation files('libs/thunder.jar')
+    implementation files('libs\\thunder.jar', 'libs\\pyramid.aar')
     implementation files('libs/commons-lang3-3.12.0.jar')
     implementation 'com.github.xuexiangjys:XUpdate:2.1.2'
     implementation 'com.github.xuexiangjys.XUpdateAPI:xupdate-easy:1.0.1' 
