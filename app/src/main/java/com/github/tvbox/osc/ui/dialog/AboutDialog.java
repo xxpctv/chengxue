@@ -16,7 +16,6 @@ public class AboutDialog extends BaseDialog {
     public AboutDialog(@NonNull @NotNull Context context) {
         super(context);
         setContentView(R.layout.dialog_about);
-
     }
 
     private TextView appVersion;
