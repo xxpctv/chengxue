@@ -65,10 +65,10 @@ jobs:
           rm -rf apk/
           mkdir -p apk/
           for file in `find ~ -name "*release*.apk" -print`; do
-            mv "$file" apk/TVBox_q215613905_${{ env.tag }}_Release.apk
+            mv "$file" apk/TVBox_q215613905-ori_${{ env.tag }}_Release.apk
           done
           for file in `find ~ -name "*debug*.apk" -print`; do
-            mv "$file" apk/TVBox_q215613905_${{ env.tag }}_Debug.apk
+            mv "$file" apk/TVBox_q215613905-ori_${{ env.tag }}_Debug.apk
           done
         
       - name: Release and Upload Assets
