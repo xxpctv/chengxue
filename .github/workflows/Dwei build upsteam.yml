@@ -50,7 +50,7 @@ jobs:
         working-directory: TVBoxOSC
         run: |
           chmod +x gradlew
-          ./gradlew assembledebug --build-cache --parallel --daemon --warning-mode all
+          ./gradlew assemblerelease --build-cache --parallel --daemon --warning-mode all
           
       - name: Prepare App
         if: ${{ env.commit }}
@@ -58,8 +58,8 @@ jobs:
         run: |
           rm -rf apk/
           mkdir -p apk/
-          for file in `find ~ -name "*debug*.apk" -print`; do
-            mv "$file" apk/TVBox_Dwei1120_${{ env.tag }}_Debug.apk
+          for file in `find ~ -name "*release*.apk" -print`; do
+            mv "$file" apk/TVBox_Dwei1120_${{ env.tag }}_release.apk
           done
         
       - name: Release and Upload Assets
