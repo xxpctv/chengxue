@@ -7,7 +7,7 @@
         android:layout_width="310dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@color/color_FFFFFF"
+        android:background="#e0e0e0"
         android:paddingBottom="20dp">
 
         <TextView
@@ -15,9 +15,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:text="发现新版本"
+			android:textColor="#000000"
             android:textSize="20sp" />
 
         <View
@@ -29,14 +30,16 @@
 
         <TextView
             android:id="@+id/log_head"
+			android:textColor="#000000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/line"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp" />
 
         <TextView
             android:id="@+id/msg_tv"
+			android:textColor="#000000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/log_head"
