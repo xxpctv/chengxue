@@ -81,6 +81,12 @@ public class OkGoHelper {
             case 5: {
                 return "https://dns.quad9.net/dns-query";
             }
+			case 6: {
+                return "https://dns.google/dns-query";
+            }
+            case 7: {
+                return "https://1.1.1.1/dns-query";   // takagen99
+            }
         }
         return "";
     }
@@ -92,6 +98,8 @@ public class OkGoHelper {
         dnsHttpsList.add("360");
         dnsHttpsList.add("AdGuard");
         dnsHttpsList.add("Quad9");
+		dnsHttpsList.add("谷歌");
+        dnsHttpsList.add("CloudFlare");
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor("OkExoPlayer");
         if (Hawk.get(HawkConfig.DEBUG_OPEN, false)) {
