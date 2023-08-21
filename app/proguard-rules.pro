@@ -205,9 +205,9 @@
 -keep class com.github.tvbox.quickjs.** {*;}
 # 支持影视的ali相关的jar
 -keep class com.google.gson.**{*;}
-
-# 添加 python 支持
--keep public class com.undcover.freedom.pyramid.** { *; }
--dontwarn com.undcover.freedom.pyramid.**
--keep public class com.chaquo.python.** { *; }
--dontwarn com.chaquo.python.**
+# Zxing
+-keep class com.google.zxing.**{*;}
+-keepclassmembers enum * {
+    public static [] values();
+    public static ** valueOf(java.lang.String);
+}
