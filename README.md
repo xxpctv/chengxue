@@ -99,12 +99,14 @@ Q版624行，T版770行
 {
     "wallpaper": "壁纸路径" //例子 "https://picsum.photos/1920/1080/?blur=10"
 }
+
 单Jar的定义方式不变，直接放路径即可:
 
 {
     ...
     "spider": "jar地址"
     ...
+
 多Jars:
 
 {
