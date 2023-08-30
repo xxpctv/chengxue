@@ -15,9 +15,11 @@ import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.LOG;
 import com.github.tvbox.osc.util.OkGoHelper;
 import com.github.tvbox.osc.util.PlayerHelper;
+import com.github.tvbox.osc.util.RemoteConfig;
 import com.github.tvbox.osc.util.js.JSEngine;
 import com.kingja.loadsir.core.LoadSir;
 import com.orhanobut.hawk.Hawk;
+import com.undcover.freedom.pyramid.PythonLoader;
 import com.p2p.P2PClass;
 
 import com.whl.quickjs.android.QuickJSLoader;
@@ -41,7 +43,8 @@ public class App extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         instance = this;
-        initParams();
+        RemoteConfig.Init(this);
+		initParams();
         // OKGo
         OkGoHelper.init(); 
         //台标获取
@@ -60,7 +63,11 @@ public class App extends MultiDexApplication {
                 .setSupportSubunits(Subunits.MM);
         PlayerHelper.init();
         QuickJSLoader.init();        
-        FileUtils.cleanPlayerCache();
+
+        // Add Pyramid support
+        PythonLoader.getInstance().setApplication(this);
+		
+		FileUtils.cleanPlayerCache();
     }
 
     private void initParams() {
@@ -69,6 +76,10 @@ public class App extends MultiDexApplication {
         Hawk.put(HawkConfig.DEBUG_OPEN, false);
         if (!Hawk.contains(HawkConfig.PLAY_TYPE)) {
             Hawk.put(HawkConfig.PLAY_TYPE, 1);
+		Hawk.put(HawkConfig.HOME_REC, 1);      				// Home Rec 0=豆瓣, 1=站点推荐, 2=历史
+		Hawk.put(HawkConfig.HOME_REC_STYLE, true);			// 0=首页单行(左右切换)，1=首页多行(上下切换)
+		Hawk.put(HawkConfig.SEARCH_VIEW, 1);    			// 0=文字搜索列表 1=缩略图搜索列表
+		Hawk.put(HawkConfig.IJK_CODEC, "硬解码");    		// 硬解码
         }
     }
 
