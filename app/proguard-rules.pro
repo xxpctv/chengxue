@@ -35,7 +35,7 @@
 # 保留我们使用的四大组件，自定义的Application等等这些类不被混淆
 # 因为这些子类都有可能被外部调用
 -keep public class * extends android.app.Activity
--keep public class * extends android.app.Appliction.**
+-keep public class * extends android.app.Application.**
 -keep public class * extends android.app.Service
 -keep public class * extends android.content.BroadcastReceiver
 -keep public class * extends android.content.ContentProvider
@@ -202,10 +202,7 @@
 # 迅雷下载模块
 -keep class com.xunlei.downloadlib.** {*;}
 # quickjs引擎
--keep class com.whl.quickjs.** {*;}
-#-keep class com.quickjs.android.** {*;}
-# jsoup
--keep class org.jsoup.** {*;}
+-keep class com.github.tvbox.quickjs.** {*;}
 # 支持影视的ali相关的jar
 -keep class com.google.gson.**{*;}
 # Zxing
@@ -214,9 +211,3 @@
     public static **[] values();
     public static ** valueOf(java.lang.String);
 }
-
-# 添加 python 支持
--keep public class com.undcover.freedom.pyramid.** { *; }
--dontwarn com.undcover.freedom.pyramid.**
--keep public class com.chaquo.python.** { *; }
--dontwarn com.chaquo.python.**
