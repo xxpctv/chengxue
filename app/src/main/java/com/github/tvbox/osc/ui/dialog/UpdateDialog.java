@@ -159,7 +159,7 @@ public class UpdateDialog extends BaseDialog  {
             for (int i = 0; i < NewVersions.length; i++)
             {
 
-                int posNum = Integer.parseInt("100000000000".substring(0,12-i));
+                int posNum = Integer.parseInt("1000000000".substring(0,12-i));
                 NewVersionNum += Integer.parseInt(NewVersions[i])*posNum;
                 CurrVersionNum += Integer.parseInt(CurrVersions[i])*posNum;
             }
