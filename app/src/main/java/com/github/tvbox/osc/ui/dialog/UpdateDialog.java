@@ -53,9 +53,9 @@ public class UpdateDialog extends BaseDialog  {
 
     // 更新需要静态参数
     private static String CurrVersion="1.0.0";
-    private static int CurrVersionNum=100000000000; // 1*1000+2*100+3*10
+    private static int CurrVersionNum=10000000000; // 1*1000+2*100+3*10
     private static String NewVersion="1.0.0";
-    private static int NewVersionNum=100000000000;
+    private static int NewVersionNum=10000000000;
     private static Boolean ForceUpdate;
     private static String UpdateDesc;
     private static String UpdateUrl;
