@@ -53,9 +53,9 @@ public class UpdateDialog extends BaseDialog  {
 
     // 更新需要静态参数
     private static String CurrVersion="1.0.0";
-    private static int CurrVersionNum=10000000; // 1*1000+2*100+3*10
+    private static int CurrVersionNum=1000000000; // 1*1000+2*100+3*10
     private static String NewVersion="1.0.0";
-    private static int NewVersionNum=10000000;
+    private static int NewVersionNum=1000000000;
     private static Boolean ForceUpdate;
     private static String UpdateDesc;
     private static String UpdateUrl;
@@ -159,7 +159,7 @@ public class UpdateDialog extends BaseDialog  {
             for (int i = 0; i < NewVersions.length; i++)
             {
 
-                int posNum = Integer.parseInt("10000000".substring(0,8-i));
+                int posNum = Integer.parseInt("1000000000".substring(0,10-i));
                 NewVersionNum += Integer.parseInt(NewVersions[i])*posNum;
                 CurrVersionNum += Integer.parseInt(CurrVersions[i])*posNum;
             }
